@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <div className="border w-96 h-60 border-slate-400 flex flex-col items-start justify-start gap-3 rounded-lg py-6 px-8 bg-slate-300">
+      <div className="border w-[30rem] h-60 border-slate-400 flex flex-col items-start justify-start gap-3 rounded-lg py-6 px-8 bg-slate-300">
         <h1 className="text-xl font-semibold text-slate-700">URL Shortener</h1>
         <div className="mt-6 w-full">
           <div className="flex gap-3 w-full h-10 items-center justify-between">
@@ -74,13 +74,13 @@ function App() {
           {status == "ERROR" && (
             <p className=" text-red-600 text-sm mt-2">{error}</p>
           )}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-start">
             {status == "LOADING" && <Loader className="mt-10 w-10 h-10 " />}
             {status == "SUCCESSFUL" && (
-              <div className="mt-10 flex items-center justify-center gap-3">
+              <div className="mt-10 space-x-3">
                 <a
                   href={shortenedURL}
-                  className=" underline text-slate-700 transition-all hover:text-slate-500"
+                  className="break-all underline text-slate-700 transition-all hover:text-slate-500"
                 >
                   {shortenedURL}
                 </a>
