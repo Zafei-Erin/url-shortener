@@ -32,3 +32,13 @@
     pnpm run dev
     # Deployment is handled by Vercel
 ```
+
+## Time Complexity
+
+### Read
+
+look up by \_id: O(1)
+
+### Write
+
+insert to the end of collection: O(1)
