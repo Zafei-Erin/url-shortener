@@ -54,9 +54,12 @@ function App() {
   };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full h-screen flex items-center justify-center p-3">
       <div className="border w-[30rem] h-60 border-slate-400 flex flex-col items-start justify-start gap-3 rounded-lg py-6 px-8 bg-slate-300">
+        {/* Title */}
         <h1 className="text-xl font-semibold text-slate-700">URL Shortener</h1>
+
+        {/* Input */}
         <div className="mt-6 w-full">
           <div className="flex gap-3 w-full h-10 items-center justify-between">
             <input
@@ -74,19 +77,21 @@ function App() {
           {status == "ERROR" && (
             <p className=" text-red-600 text-sm mt-2">{error}</p>
           )}
-          <div className="flex items-center justify-center">
-            {status == "LOADING" && <Loader className="mt-10 w-10 h-10 " />}
+
+          {/* Result */}
+          <div className="flex mt-2 h-full items-center justify-center">
+            {status == "LOADING" && <Loader className="w-10 h-10 " />}
             {status == "SUCCESSFUL" && (
-              <div className="mt-10 space-x-3">
+              <div className="gap-3 flex items-center justify-center max-sm:flex-col">
                 <a
                   href={shortenedURL}
-                  className="underline text-slate-700 transition-all hover:text-slate-500"
+                  className="underline text-sm sm:text-md text-slate-700 transition-all hover:text-slate-500"
                 >
                   {shortenedURL}
                 </a>
                 <button
                   onClick={handleCopy}
-                  className="bg-slate-100 h-full text-xs py-1 px-2 rounded-lg hover:bg-slate-200 text-slate-600 transition-all"
+                  className="bg-slate-100 h-full w-full sm:w-fit text-xs py-1 px-2 rounded-lg hover:bg-slate-200 text-slate-600 transition-all"
                 >
                   {copy}
                 </button>
