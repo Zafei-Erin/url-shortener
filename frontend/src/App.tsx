@@ -74,13 +74,13 @@ function App() {
           {status == "ERROR" && (
             <p className=" text-red-600 text-sm mt-2">{error}</p>
           )}
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-center">
             {status == "LOADING" && <Loader className="mt-10 w-10 h-10 " />}
             {status == "SUCCESSFUL" && (
               <div className="mt-10 space-x-3">
                 <a
                   href={shortenedURL}
-                  className="break-all underline text-slate-700 transition-all hover:text-slate-500"
+                  className="underline text-slate-700 transition-all hover:text-slate-500"
                 >
                   {shortenedURL}
                 </a>
