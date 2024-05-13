@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Loader } from "./assets/Loader";
+import { Loader } from "./icon";
 
 type Status = "EMPTY" | "LOADING" | "ERROR" | "SUCCESSFUL";
 
