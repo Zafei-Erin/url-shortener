@@ -1,10 +1,6 @@
 import { URLCollection, getURLCollection } from "../../../mongoDB/client";
+import { TRY_LIMIT, server } from "../../config/defaults";
 import { getRandomHash } from "../getRandomHash/getRandomHash";
-import dotenv from "dotenv";
-
-dotenv.config();
-const server = process.env.SERVER || "http://localhost";
-const TRY_LIMIT = 10;
 
 export const getShortenedURLWithLimit = async (
   url: string,

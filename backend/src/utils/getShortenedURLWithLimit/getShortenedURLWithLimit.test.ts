@@ -5,8 +5,8 @@ import {
   disConnectMongoDB,
   getURLCollection,
 } from "../../../mongoDB/client";
+import { URI } from "../../config/defaults";
 
-const URI = process.env.DB_URI || "";
 const testURL = "https://test.com";
 
 describe("getShortenedURLWithLimit", () => {

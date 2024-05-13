@@ -1,11 +1,7 @@
-import dotenv from "dotenv";
 import express from "express";
 import { connectMongoDB } from "../mongoDB/client";
 import { getShortenedURL, postShortenedURL } from "./router";
-
-dotenv.config();
-const port = process.env.PORT || 4000;
-const URI = process.env.DB_URI || "";
+import { URI, port } from "./config/defaults";
 
 (async () => {
   await connectMongoDB(URI);
