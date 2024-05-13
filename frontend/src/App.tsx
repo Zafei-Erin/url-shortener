@@ -9,7 +9,7 @@ function App() {
   const [status, setStatus] = useState<Status>("EMPTY");
   const [error, setError] = useState<string>("");
   const [shortenedURL, setShortenedURL] = useState<string>("");
-  const [copy, setCopy] = useState<string>("Copy");
+  const [copied, setCopied] = useState<boolean>(false);
   const inpurRef = useRef<HTMLInputElement | null>(null);
 
   const submit = async () => {
@@ -46,10 +46,10 @@ function App() {
   };
 
   const handleCopy = () => {
-    setCopy("Copied!");
+    setCopied(true);
     navigator.clipboard.writeText(shortenedURL);
     setTimeout(() => {
-      setCopy("Copy");
+      setCopied(false);
     }, 2000);
   };
 
@@ -93,7 +93,7 @@ function App() {
                   onClick={handleCopy}
                   className="bg-slate-100 h-full w-full sm:w-fit text-xs py-1 px-2 rounded-lg hover:bg-slate-200 text-slate-600 transition-all"
                 >
-                  {copy}
+                  {copied ? "Copyied" : "Copy"}
                 </button>
               </div>
             )}
