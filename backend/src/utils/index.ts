@@ -1,2 +1,3 @@
 export * from "./getRandomHash/getRandomHash";
-export * from "./getShortenedURLWithLimit/getShortenedURLWithLimit";
+export * from "./getExistingShortenedURL/getExistingShortenedURL";
+export * from "./generateAndInsertShortenedURL/generateAndInsertShortenedURL";

@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import { getShortenedURLWithLimit } from "../../utils";
+import {
+  getExistingShortenedURL,
+  generateAndInsertShortenedURL,
+} from "../../utils";
 
 export const postShortenedURL = async (req: Request, res: Response) => {
   const { url } = req.body;
@@ -16,13 +19,19 @@ export const postShortenedURL = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "This is not a valid URL." });
   }
 
-  /* Create shortened url */
-  const { error, data } = await getShortenedURLWithLimit(url);
-  if (error) {
-    return res
-      .status(500)
-      .json({ message: "Could not generate new shortened URL." });
+  /* Check if provided url is existing */
+  const existingShortenedURL = await getExistingShortenedURL(url);
+  if (existingShortenedURL !== null) {
+    return res.status(201).json({ shortened: existingShortenedURL });
   }
 
-  return res.status(201).json({ shortened: data });
+  /* Create shortened url */
+  const newShortenedURL = await generateAndInsertShortenedURL(url);
+  if (newShortenedURL !== null) {
+    return res.status(201).json({ shortened: newShortenedURL });
+  }
+
+  return res
+    .status(500)
+    .json({ message: "Could not generate new shortened URL." });
 };
