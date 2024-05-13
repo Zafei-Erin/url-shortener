@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getShortenedURLWithLimit } from "../utils";
+import { getShortenedURLWithLimit } from "../../utils";
 
 export const postShortenedURL = async (req: Request, res: Response) => {
   const { url } = req.body;

@@ -1,2 +1,2 @@
-export * from "./getShortenedURL";
-export * from "./postShortenedURL";
+export * from "./shortenedURL/getShortenedURL";
+export * from "./shortenedURL/postShortenedURL";

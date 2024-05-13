@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getURLCollection } from "../../mongoDB/client";
+import { getURLCollection } from "../../../mongoDB/client";
 
 export const getShortenedURL = async (req: Request, res: Response) => {
   const { id } = req.params;
